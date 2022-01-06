@@ -33,7 +33,7 @@ public class PacMan{
 		}
 		if (myMap.getLoc(locLeft).equals(Map.Type.WALL) || myMap.getLoc(locLeft).equals(Map.Type.GHOST)){
 			moves.add(locLeft);
-		}
+		} 
 		
 		return moves;
 	}
