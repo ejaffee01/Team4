@@ -22,19 +22,19 @@ public class PacMan{
 		Location locRight = new Location(myLoc.x+1, myLoc.y);
 		Location locLeft = new Location(myLoc.x-1, myLoc.y);
 		//Tests if adjacent locations are hitting a wall
-		if (myMap.getLoc(locUp).contains(Map.Type.WALL) || myMap.getLoc(locUp).contains(Map.Type.GHOST)){
+		if (!myMap.getLoc(locUp).contains(Map.Type.WALL) && !myMap.getLoc(locUp).contains(Map.Type.GHOST)){
 			moves.add(locUp);
 		}
-		if (myMap.getLoc(locDown).contains(Map.Type.WALL) || myMap.getLoc(locDown).contains(Map.Type.GHOST)){
+		if (!myMap.getLoc(locDown).contains(Map.Type.WALL) && !myMap.getLoc(locDown).contains(Map.Type.GHOST)){
 			moves.add(locDown);
 		}
-		if (myMap.getLoc(locRight).contains(Map.Type.WALL) || myMap.getLoc(locRight).contains(Map.Type.GHOST) ){
+		if (!myMap.getLoc(locRight).contains(Map.Type.WALL) && !myMap.getLoc(locRight).contains(Map.Type.GHOST) ){
 			moves.add(locRight);
 		}
-		if (myMap.getLoc(locLeft).contains(Map.Type.WALL) || myMap.getLoc(locLeft).contains(Map.Type.GHOST)){
+		if (!myMap.getLoc(locLeft).contains(Map.Type.WALL) && !myMap.getLoc(locLeft).contains(Map.Type.GHOST)){
 			moves.add(locLeft);
 		} 
-		
+
 		return moves;
 	}
 

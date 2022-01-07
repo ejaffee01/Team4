@@ -15,8 +15,8 @@ public class TestPacManValidMoves extends TestCase {
 		//put pacman on a corner (1,1), and u should get back (1,2) and (2,1)
 		result.add(new Location(1,2));
 		result.add(new Location(2,1));
-		
-		assertEquals(pac.get_valid_moves(), result);
+		System.out.println(result.toString());
+		assertEquals(result, pac.get_valid_moves());
 		
 	}
 }
