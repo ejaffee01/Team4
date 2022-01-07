@@ -25,6 +25,6 @@ public class Ghost{
 	}
 
 	public boolean attack() {
-		return false;
+		return this.is_pacman_in_range() && this.myMap.attack(this.myName);
 	}
 }
