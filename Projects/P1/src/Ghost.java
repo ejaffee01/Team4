@@ -20,16 +20,16 @@ public class Ghost{
 		Location locRight = new Location(myLoc.x+1, myLoc.y);
 		Location locLeft = new Location(myLoc.x-1, myLoc.y);
 		//Tests if adjacent locations are hitting a wall
-		if (myMap.getLoc(locUp).contains(Map.Type.WALL)){
+		if (!myMap.getLoc(locUp).contains(Map.Type.WALL)){
 			moves.add(locUp);
 		}
-		if (myMap.getLoc(locDown).contains(Map.Type.WALL)){
+		if (!myMap.getLoc(locDown).contains(Map.Type.WALL)){
 			moves.add(locDown);
 		}
-		if (myMap.getLoc(locRight).contains(Map.Type.WALL)){
+		if (!myMap.getLoc(locRight).contains(Map.Type.WALL)){
 			moves.add(locRight);
 		}
-		if (myMap.getLoc(locLeft).contains(Map.Type.WALL)){
+		if (!myMap.getLoc(locLeft).contains(Map.Type.WALL)){
 			moves.add(locLeft);
 		}
 		
