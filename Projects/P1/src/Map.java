@@ -53,14 +53,41 @@ public class Map{
 	}
 		
 	public boolean move(String name, Location loc, Type type) {
-		//update locations, components, and field
-		//use the setLocation method for the component to move it to the new location
-		return false;
+		if (type == (Map.Type.PACMAN)){
+			PacMan obj = new PacMan(name, loc, this);
+			if (obj.get_valid_moves().contains(loc)){
+				//update locations, components, and field
+				locations.put(name, loc);
+				//use the setLocation method for the component to move it to the new location
+				components.get(name).setLocation(loc.x,loc.y);
+				field.get(loc).add(type);
+				return true;
+			}
+			else{
+				return false;
+			}
+		}else if (type == (Map.Type.GHOST)){
+			Ghost obj = new Ghost(name, loc, this);
+			if (obj.get_valid_moves().contains(loc)){
+				//update locations, components, and field
+				locations.put(name, loc);
+				//use the setLocation method for the component to move it to the new location
+				components.get(name).setLocation(loc.x,loc.y);
+				field.get(loc).add(type);
+				return true;
+			}
+			else{
+				return false;
+			}
+		}else {
+			return false;
+		}
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return null;
+		HashSet<Type> alpha = field.get(loc);
+		return alpha;
 	}
 
 	public boolean attack(String Name) {
