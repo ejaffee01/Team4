@@ -66,7 +66,7 @@ public class Map{
 	public boolean attack(String Name) {
 		if (locations.containsKey(Name) && move(Name, locations.get("pacman"), Type.GHOST)) {
 			//update gameOver
-			gameOver = true;
+			this.gameOver = true;
 		}
 		return gameOver;
 	}
