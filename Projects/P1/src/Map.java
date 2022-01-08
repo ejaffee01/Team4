@@ -53,9 +53,11 @@ public class Map{
 	}
 		
 	public boolean move(String name, Location loc, Type type) {
+		Location oldLoc = locations.get(name);
 		if (type == (Map.Type.PACMAN)){
-			PacMan obj = new PacMan(name, loc, this);
-			if (obj.get_valid_moves().contains(loc)){
+			PacMan pac = new PacMan(name, oldLoc, this);
+			
+			if (pac.get_valid_moves().contains(loc)){
 				//update locations, components, and field
 				locations.put(name, loc);
 				//use the setLocation method for the component to move it to the new location
@@ -67,13 +69,14 @@ public class Map{
 				return false;
 			}
 		}else if (type == (Map.Type.GHOST)){
-			Ghost obj = new Ghost(name, loc, this);
-			if (obj.get_valid_moves().contains(loc)){
+			Ghost ghost = new Ghost(name, oldLoc, this);
+			if (ghost.get_valid_moves().contains(loc)){
 				//update locations, components, and field
 				locations.put(name, loc);
 				//use the setLocation method for the component to move it to the new location
 				components.get(name).setLocation(loc.x,loc.y);
 				field.get(loc).add(type);
+				
 				return true;
 			}
 			else{
