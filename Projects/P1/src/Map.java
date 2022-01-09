@@ -64,8 +64,11 @@ public class Map{
 	}
 
 	public boolean attack(String Name) {
-		//update gameOver
-		return false;
+		if (locations.containsKey(Name) && move(Name, locations.get("pacman"), Type.GHOST)) {
+			//update gameOver
+			this.gameOver = true;
+		}
+		return gameOver;
 	}
 	
 	public JComponent eatCookie(String name) {
