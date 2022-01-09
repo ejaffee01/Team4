@@ -62,7 +62,8 @@ Make sure to run these commands from inside the P1 directory
 ### is_ghost_in_range()
 
 - **Type**: `() -> Bool`
-- **Description**: This method checks its surroundings to see if any Ghosts are in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If any Ghosts are in the attack range, this method returns true otherwise it returns false.
+- **Description**: This method checks its surroundings to see if any Ghosts are in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If any Ghosts are in the attack range, this method returns true otherwise it returns false. 
+- Uses Map.getLoc() and Location.shift) to check if the cardinal directions 1 sqaure away from pacman contain Map.Type.GHOST
 
 - **Examples**:
   ```java
@@ -70,7 +71,7 @@ Make sure to run these commands from inside the P1 directory
   //pacman at location (9,12)
   pacman.is_ghost_in_range() -> true
   ```
-- **testPacManInRange()**: (DESCRIPTION HERE)
+- **testGhostInRange()**: Creates a ghost with location (2, 3) and Pacman at location (3, 3) then checks whether is_ghost_in_range() returns true
 
 ### consume()
 
