@@ -171,13 +171,14 @@ The Map Class uses Java GUI to create the visual represenation of our game. For 
 
 - **Type**: `(String name) -> Bool`
 - **Description**: The method controls ghosts attacking pacman. If the ghost was able to successfully attack pacman and update the display to do so return true, otherwise return false.
+- This function ensures the ghost (w/ name) is on the map and then if it is moves it to pacman's location using the Map move() function and sets gameOver equals to true, otherwise gameOver is false.
 
 ```java
  //ghost named clyde at location (9,11)
  //pacman at location (9,12)
  Map.attack("clyde") -> true
 ```
-- **testMapAttack()**: (DESCRIPTION HERE)
+- **testMapAttack()**: Creates Ghost at location (3, 3) and pacman at location (3, 2) and asserts that map.attack() returns true
 
 ### eatCookie(String Name)
 
