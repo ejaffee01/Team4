@@ -75,7 +75,7 @@ Make sure to run these commands from inside the P1 directory
 ### consume()
 
 - **Type**: `() -> JComponent`
-- **Description**: This method checks to see if there is a 'power-cookie' located in Pacman's current <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> coordinate. If there is, this method calls the eatCookie method from the Map Class, and returns the cookie component if the cookie a consumed, and null otherwise.
+- **Description**: This method checks to see if there is a 'power-cookie' located in Pacman's current (x,y) coordinate. If there is, this method calls the eatCookie method from the Map Class, and returns the cookie component if the cookie a consumed, and null otherwise. This is done by calling `Map.getLoc` with PacMan's current location, checking if it includes `Map.Type.COOKIE`, and then calling `Map.eatCookie` if so.
 - **Examples**:
 
 ```java
@@ -83,7 +83,7 @@ Make sure to run these commands from inside the P1 directory
 //cookie NOT at location (9,12)
 pacman.consume() -> null
 ```
-- **testConsume()**: (DESCRIPTION HERE)
+- **testConsume()**: This test adds PacMan directly on top of a cookie at location (1,1), and asserts that `pacman.consume()` does not return `null`.
 <br><br>
 ## Ghost Class Functions
 
@@ -129,7 +129,7 @@ In this section, you must create a class for the ghosts that are moving around t
 ### attack()
 
 - **Type**: `() -> Bool`
-- **Description**: This function checks to see if PacMan is in the attack range by using the is_pacman_in_range method and attacks PacMan if it is in range. This function returns true if the attack was successful and false otherwise.
+- **Description**: This function checks to see if PacMan is in the attack range by calling `is_pacman_in_range` - if PacMan is in attack range, this function calls `Map.attack` with the Ghost object's assigned name and returns the value from `Map.attack`.
 
 - **Examples**:
   ```java
@@ -137,7 +137,7 @@ In this section, you must create a class for the ghosts that are moving around t
   //pacman at location (9,12)
   ghost.attack() -> true
   ```
-- **testAttack()**: (DESCRIPTION HERE)
+- **testAttack()**: This test initializes a Ghost and PacMan object right next to eachother and asserts that `Ghost.attack` returns true.
 <br><br>
 ## Map Class Functions
 
@@ -180,11 +180,12 @@ The Map Class uses Java GUI to create the visual represenation of our game. For 
 ### eatCookie(String Name)
 
 - **Type**: `() -> JComponent`
-- **Description**: The method controls Pacman eating a cookie. When the function is able to successfully update display to eat a cookie it returns the Cookie component that has been eaten, otherwise it returns null.
+- **Description**: The method controls Pacman eating a cookie. This method checks if the objects at PacMan's current location include `Map.Type.COOKIE`, and deletes
+that cookie from all relevant fields in the Map class. This method returns `null` if it cannot successfully delete the cookie, or the JComponent associated with the cookie otherwise.
 
 ```java
  //cookie NOT at location (4,6)
  //pacman at location (4,6)
  Map.eatCookie("pacman") -> null
 ```
-- **testMapEatCookie()**: (DESCRIPTION HERE)
+- **testMapEatCookie()**: This test initalizes PacMan at (1,1) with the default map configuration and asserts that the return value of `Map.eatCookie` is not null.
