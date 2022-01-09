@@ -37,6 +37,11 @@ public class Ghost{
 	}
 
 	public boolean move() {
+		ArrayList<Location> to_check = this.get_valid_moves();
+		if(to_check.size() > 0){
+			myLoc = to_check.get(0);
+			return true;
+		}
 		return false;
 	}
 
