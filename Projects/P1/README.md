@@ -118,6 +118,7 @@ In this section, you must create a class for the ghosts that are moving around t
 
 - **Type**: `() -> Bool`
 - **Description**: This function checks its surroundings to see if PacMan is in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If PacMan is in the attack range, this function returns true otherwise it returns false.
+- Uses Map.getLoc() and Location.shift) to check if the cardinal directions 1 sqaure away from the current ghost contains Map.Type.PACMAN
 
 - **Examples**:
   ```java
@@ -125,7 +126,7 @@ In this section, you must create a class for the ghosts that are moving around t
   //pacman at location (9,12)
   ghost.is_pacman_in_range() -> true
   ```
-- **testGhostInRange()**: (DESCRIPTION HERE)
+- **testPacmanInRange()**: Creates 2 ghost ghost1 at location (2, 3) and ghost2 at location (4, 4) and Pacman at location (3, 3). Asserts that ghost1.is_pacman_in_range() is true and ghost2.is_pacman_in_range() is false.
 
 ### attack()
 
