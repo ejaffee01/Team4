@@ -57,7 +57,7 @@ Make sure to run these commands from inside the P1 directory
   pacman.move() -> true
   pacman.myLoc ∈ {(9,12), (10,11), (10,12)}
   ```
-- **testPacManMove()**: (DESCRIPTION HERE)
+- **testPacManMove()**: This test makes sure that move() returns true when valid move options are avalible. 
 
 ### is_ghost_in_range()
 
@@ -111,7 +111,7 @@ In this section, you must create a class for the ghosts that are moving around t
   ghost.move() -> true
   ghost.myLoc ∈ {(9,12), (10,11), (10,12)}
   ```
-- **testGhostMove()**: (DESCRIPTION HERE)
+- **testGhostMove()**: This test makes sure that move() returns true when valid move options are avalible.
 
 ### is_pacman_in_range()
 
@@ -163,7 +163,7 @@ The Map Class uses Java GUI to create the visual represenation of our game. For 
  //pacman at location (2,4)
  map.getLoc(new Location (2,4) -> Map.Type.PACMAN
 ```
-- **testMapGetLoc()**: (DESCRIPTION HERE)
+- **testMapGetLoc()**: This test makes sure that getLoc() accuratley returns a a HashSet with the correct item in the location
 
 ### attack(String name)
 
