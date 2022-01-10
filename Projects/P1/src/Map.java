@@ -70,7 +70,17 @@ public class Map{
 			}
 		}else if (type == (Map.Type.GHOST)){
 			Ghost ghost = new Ghost(name, oldLoc, this);
+			System.out.println("PAcman in trouble");
+			System.out.print(ghost.get_valid_moves().get(0).x+" "+ghost.get_valid_moves().get(0).y);
+			System.out.print(ghost.get_valid_moves().get(1).x+" "+ghost.get_valid_moves().get(1).y);
+			System.out.println(ghost.get_valid_moves().get(2).x+" "+ghost.get_valid_moves().get(2).y);
+			System.out.println(this.getLoc(new Location(2, 3)));
+			System.out.println(this.getLoc(new Location(3, 2)));
+
+			System.out.println(loc.x+" "+loc.y);
 			if (ghost.get_valid_moves().contains(loc)){
+
+				System.out.println("PAcman in trouble");
 				//update locations, components, and field
 				locations.put(name, loc);
 				//use the setLocation method for the component to move it to the new location
@@ -93,8 +103,11 @@ public class Map{
 	}
 
 	public boolean attack(String Name) {
+		System.out.println("HERE 1");
+		System.out.println(locations.containsKey(Name));
 		if (locations.containsKey(Name) && move(Name, locations.get("pacman"), Type.GHOST)) {
 			//update gameOver
+			System.out.println("HERE 2");
 			this.gameOver = true;
 		}
 		return gameOver;
@@ -102,15 +115,20 @@ public class Map{
 	
 	public JComponent eatCookie(String name) {
         Location location = this.locations.get(name);
+		System.out.println("HERE 1");
         HashSet<Type> objects = this.getLoc(location);
 		if (this.cookies <= 0 || !(objects.contains(Map.Type.COOKIE) && objects.contains(Map.Type.PACMAN))) {
-            return null;
+            System.out.println("HERE 2");
+			return null;
         }
+		System.out.println("HERE 3");
         //the id for a cookie at (10, 1) is tok_x10_y1
         String key = String.format("tok_x%d_y%d", location.x, location.y);
         //update locations, components, field, and cookies
+		System.out.println("HERE 4");
         this.locations.remove(key);
         objects.remove(Map.Type.COOKIE);
+		System.out.println("HERE 5");
         this.cookies -= 1;
         return this.components.remove(key);
 	}

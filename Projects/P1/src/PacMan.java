@@ -48,18 +48,18 @@ public class PacMan{
 	}
 
 	public boolean is_ghost_in_range() { 
-		if (myMap.getLoc(myLoc.shift( 0, -1)).contains(myMap.Type.GHOST) ||
-		    myMap.getLoc(myLoc.shift( 0,  1)).contains(myMap.Type.GHOST) ||
-		    myMap.getLoc(myLoc.shift(-1,  0)).contains(myMap.Type.GHOST) ||
-		    myMap.getLoc(myLoc.shift( 1,  0)).contains(myMap.Type.GHOST)) {
+		if (myMap.getLoc(myLoc.shift( 0, -1)).contains(Map.Type.GHOST) ||
+		    myMap.getLoc(myLoc.shift( 0,  1)).contains(Map.Type.GHOST) ||
+		    myMap.getLoc(myLoc.shift(-1,  0)).contains(Map.Type.GHOST) ||
+		    myMap.getLoc(myLoc.shift( 1,  0)).contains(Map.Type.GHOST)) {
 			return true;
 		}
 		return false;
 	}
 
 	public JComponent consume() { 
-        if (this.myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE)) {
-            return this.myMap.eatCookie(this.myName);
+        if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
+            return myMap.eatCookie(myName);
         }
         return null;
 	}
