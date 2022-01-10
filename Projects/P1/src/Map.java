@@ -117,7 +117,7 @@ public class Map{
         Location location = this.locations.get(name);
 		System.out.println("HERE 1");
         HashSet<Type> objects = this.getLoc(location);
-		if (this.cookies <= 0 || !(objects.contains(Map.Type.COOKIE) && objects.contains(Map.Type.PACMAN))) {
+		if (!(objects.contains(Map.Type.COOKIE) && objects.contains(Map.Type.PACMAN))) {
             System.out.println("HERE 2");
 			return null;
         }
@@ -129,7 +129,7 @@ public class Map{
         this.locations.remove(key);
         objects.remove(Map.Type.COOKIE);
 		System.out.println("HERE 5");
-        this.cookies -= 1;
+        this.cookies += 1;
         return this.components.remove(key);
 	}
 }
