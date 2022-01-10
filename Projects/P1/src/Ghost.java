@@ -20,7 +20,10 @@ public class Ghost{
 		ArrayList<Location> to_check = this.get_valid_moves();
 		if(to_check.size() > 0){
 			myLoc = to_check.get(0);
-			return true;
+			if (myMap.move(myName, myLoc, Map.Type.GHOST)){
+				return true;
+			}
+			return false;
 		}
 		return false;
 	}
