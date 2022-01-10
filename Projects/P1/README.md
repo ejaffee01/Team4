@@ -60,8 +60,7 @@ Make sure to run these commands from inside the P1 directory
 ### is_ghost_in_range()
 
 - **Type**: `() -> Bool`
-- **Description**: This method checks its surroundings to see if any Ghosts are in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If any Ghosts are in the attack range, this method returns true otherwise it returns false. 
-- Uses `Map.getLoc()` and `Location.shift()` to check if any of the cardinal directions 1 square away from pacman contain `Map.Type.GHOST`
+- **Description**: This method checks its surroundings to see if any Ghosts are in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If any Ghosts are in the attack range, this method returns true otherwise it returns false. Uses `Map.getLoc()` and `Location.shift()` to check if any of the cardinal directions 1 square away from pacman contain `Map.Type.GHOST.`
 
 - **Examples**:
   ```java
@@ -115,8 +114,7 @@ In this section, you must create a class for the ghosts that are moving around t
 ### is_pacman_in_range()
 
 - **Type**: `() -> Bool`
-- **Description**: This function checks its surroundings to see if PacMan is in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If PacMan is in the attack range, this function returns true otherwise it returns false.
-- Uses `Map.getLoc()` and `Location.shift()` to check if any of the cardinal directions 1 square away from the current ghost contains `Map.Type.PACMAN`
+- **Description**: This function checks its surroundings to see if PacMan is in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If PacMan is in the attack range, this function returns true otherwise it returns false. Uses `Map.getLoc()` and `Location.shift()` to check if any of the cardinal directions 1 square away from the current ghost contains `Map.Type.PACMAN.
 
 - **Examples**:
   ```java
@@ -168,8 +166,7 @@ The Map Class uses Java GUI to create the visual represenation of our game. For 
 ### attack(String name)
 
 - **Type**: `(String name) -> Bool`
-- **Description**: The method controls ghosts attacking pacman. If the ghost was able to successfully attack pacman and update the display to do so return true, otherwise return false.
-- This function ensures the ghost (w/ name) is on the map (in the location HashMap) and then if it is moves the ghost to pacman's location using the `Map.move()` function and sets `Map.gameOver` to true, otherwise `Map.gameOver` is false.
+- **Description**: The method controls ghosts attacking pacman. If the ghost was able to successfully attack pacman and update the display to do so return true, otherwise return false. This function ensures the ghost (w/ name) is on the map (in the location HashMap) and then if it is moves the ghost to pacman's location using the `Map.move()` function and sets `Map.gameOver` to true, otherwise `Map.gameOver` is false.
 
 ```java
  //ghost named clyde at location (9,11)
