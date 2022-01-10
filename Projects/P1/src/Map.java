@@ -53,24 +53,65 @@ public class Map{
 	}
 		
 	public boolean move(String name, Location loc, Type type) {
-		//update locations, components, and field
-		//use the setLocation method for the component to move it to the new location
-		return false;
+		Location oldLoc = locations.get(name);
+		if (type == (Map.Type.PACMAN)){
+			PacMan pac = new PacMan(name, oldLoc, this);
+			
+			if (pac.get_valid_moves().contains(loc)){
+				//update locations, components, and field
+				locations.put(name, loc);
+				//use the setLocation method for the component to move it to the new location
+				components.get(name).setLocation(loc.x,loc.y);
+				field.get(loc).add(type);
+				return true;
+			}
+			else{
+				return false;
+			}
+		}else if (type == (Map.Type.GHOST)){
+			Ghost ghost = new Ghost(name, oldLoc, this);
+			if (ghost.get_valid_moves().contains(loc)){
+				//update locations, components, and field
+				locations.put(name, loc);
+				//use the setLocation method for the component to move it to the new location
+				components.get(name).setLocation(loc.x,loc.y);
+				field.get(loc).add(type);
+				
+				return true;
+			}
+			else{
+				return false;
+			}
+		}else {
+			return false;
+		}
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
-		//wallSet and emptySet will help you write this method
-		return null;
+		HashSet<Type> alpha = field.get(loc);
+		return alpha;
 	}
 
 	public boolean attack(String Name) {
-		//update gameOver
-		return false;
+		if (locations.containsKey(Name) && move(Name, locations.get("pacman"), Type.GHOST)) {
+			//update gameOver
+			this.gameOver = true;
+		}
+		return gameOver;
 	}
 	
 	public JComponent eatCookie(String name) {
-		//update locations, components, field, and cookies
-		//the id for a cookie at (10, 1) is tok_x10_y1
-		return null;
+        Location location = this.locations.get(name);
+        HashSet<Type> objects = this.getLoc(location);
+		if (this.cookies <= 0 || !(objects.contains(Map.Type.COOKIE) && objects.contains(Map.Type.PACMAN))) {
+            return null;
+        }
+        //the id for a cookie at (10, 1) is tok_x10_y1
+        String key = String.format("tok_x%d_y%d", location.x, location.y);
+        //update locations, components, field, and cookies
+        this.locations.remove(key);
+        objects.remove(Map.Type.COOKIE);
+        this.cookies -= 1;
+        return this.components.remove(key);
 	}
 }
