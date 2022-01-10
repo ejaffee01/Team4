@@ -39,7 +39,7 @@ Make sure to run these commands from inside the P1 directory
 ### get_valid_moves()
 
 - **Type**: `() -> ArrayList`
-- **Description**: This method returns all the valid moves that PacMan can make given his current position.
+- **Description**: This method returns all the valid moves that PacMan can make given his current position. This is done by looking above, below to the right and to the left of PacMan, and check if that space contains either a wall or a ghost. If the space does not contain a ghost or a wall, it is added to an array of valid moves which is what will be returned.
 - **Examples**:
   ```java
   //pacman at location (9,11)
@@ -93,7 +93,7 @@ In this section, you must create a class for the ghosts that are moving around t
 ### get_valid_moves()
 
 - **Type**: `() -> ArrayList<Location>`
-- **Description**: This function returns an arraylist of possible locations that a ghost can move to from its current location. Ghosts cannot move through walls, but they can move through other ghosts or PacMan.
+- **Description**: This function returns an arraylist of possible locations that a ghost can move to from its current location. Ghosts cannot move through walls, but they can move through other ghosts or PacMan. This is done by looking above, below to the right and to the left of the ghost, and check if that space contains either a wall. If it doesn't, then it adds the location to an array of locations in which the ghost can move in. This array is what is returned.
 - **Examples**:
   ```java
   //ghost at location (9,11)
@@ -148,7 +148,7 @@ The Map Class uses Java GUI to create the visual represenation of our game. For 
 ### move(String name, Location loc, Type type)
 
 - **Type**: `(String name, Location loc, Type type) -> Bool`
-- **Description**: The method takes a name, location, and type and put the object specified by the name at the location. If the function is able to successfull move the object it returns true, otherwise it returns false.
+- **Description**: The method takes a name, location, and type and put the object specified by the name at the location. If the function is able to successfull move the object it returns true, otherwise it returns false. The function checks if the object type is either pacman or ghost and then checks to see if its new location is inside their list of valid moves. If it is, it will update locations, components and field ArrayList's.
 - **Examples**:
   ```java
   //pacman at location (2,4)
