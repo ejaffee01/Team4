@@ -54,10 +54,8 @@ public class Map{
 		
 	public boolean move(String name, Location loc, Type type) {
 
-		System.out.println("MOVE CALLED");
 		Location oldLoc = locations.get(name);
 		if (type == (Map.Type.PACMAN)){
-			System.out.println("Pacman move");
 			PacMan pac = new PacMan(name, oldLoc, this);
 			
 			if (pac.get_valid_moves().contains(loc)){
