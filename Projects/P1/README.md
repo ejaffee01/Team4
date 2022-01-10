@@ -61,7 +61,7 @@ Make sure to run these commands from inside the P1 directory
 
 - **Type**: `() -> Bool`
 - **Description**: This method checks its surroundings to see if any Ghosts are in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If any Ghosts are in the attack range, this method returns true otherwise it returns false. 
-- Uses 'Map.getLoc()' and 'Location.shift()' to check if any of the cardinal directions 1 square away from pacman contain 'Map.Type.GHOST'
+- Uses `Map.getLoc()` and `Location.shift()` to check if any of the cardinal directions 1 square away from pacman contain `Map.Type.GHOST`
 
 - **Examples**:
   ```java
@@ -69,7 +69,7 @@ Make sure to run these commands from inside the P1 directory
   //pacman at location (9,12)
   pacman.is_ghost_in_range() -> true
   ```
-- **testGhostInRange()**: Creates a ghost with location (2, 3) and Pacman at location (3, 3) then asserts 'pacman.is_ghost_in_range()' returns true
+- **testGhostInRange()**: Creates a ghost with location (2, 3) and Pacman at location (3, 3) then asserts `pacman.is_ghost_in_range()` returns true
 
 ### consume()
 
@@ -116,7 +116,7 @@ In this section, you must create a class for the ghosts that are moving around t
 
 - **Type**: `() -> Bool`
 - **Description**: This function checks its surroundings to see if PacMan is in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If PacMan is in the attack range, this function returns true otherwise it returns false.
-- Uses 'Map.getLoc()' and 'Location.shift()' to check if any of the cardinal directions 1 square away from the current ghost contains 'Map.Type.PACMAN'
+- Uses `Map.getLoc()` and `Location.shift()` to check if any of the cardinal directions 1 square away from the current ghost contains `Map.Type.PACMAN`
 
 - **Examples**:
   ```java
@@ -124,7 +124,7 @@ In this section, you must create a class for the ghosts that are moving around t
   //pacman at location (9,12)
   ghost.is_pacman_in_range() -> true
   ```
-- **testPacmanInRange()**: Creates 2 ghost ghost1 at location (2, 3) and ghost2 at location (4, 4) and Pacman at location (3, 3). Asserts that 'ghost1.is_pacman_in_range()' is true and 'ghost2.is_pacman_in_range()' is false.
+- **testPacmanInRange()**: Creates 2 ghost ghost1 at location (2, 3) and ghost2 at location (4, 4) and Pacman at location (3, 3). Asserts that `ghost1.is_pacman_in_range()` is true and `ghost2.is_pacman_in_range()` is false.
 
 ### attack()
 
@@ -169,14 +169,14 @@ The Map Class uses Java GUI to create the visual represenation of our game. For 
 
 - **Type**: `(String name) -> Bool`
 - **Description**: The method controls ghosts attacking pacman. If the ghost was able to successfully attack pacman and update the display to do so return true, otherwise return false.
-- This function ensures the ghost (w/ name) is on the map (in the location HashMap) and then if it is moves the ghost to pacman's location using the 'Map.move()' function and sets 'Map.gameOver' to true, otherwise 'Map.gameOver' is false.
+- This function ensures the ghost (w/ name) is on the map (in the location HashMap) and then if it is moves the ghost to pacman's location using the `Map.move()` function and sets `Map.gameOver` to true, otherwise `Map.gameOver` is false.
 
 ```java
  //ghost named clyde at location (9,11)
  //pacman at location (9,12)
  Map.attack("clyde") -> true
 ```
-- **testMapAttack()**: Creates Ghost at location (3, 3) and pacman at location (2, 3) and asserts that map.attack() returns true
+- **testMapAttack()**: Creates Ghost at location (3, 3) and pacman at location (2, 3) and asserts that `Map.attack()` returns true
 
 ### eatCookie(String Name)
 
