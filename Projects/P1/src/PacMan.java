@@ -39,14 +39,31 @@ public class PacMan{
 	}
 
 	public boolean move() {
+		ArrayList<Location> to_check = this.get_valid_moves();
+		if(to_check.size() > 0){
+			myLoc = to_check.get(0);
+			if (myMap.move(myName, myLoc, Map.Type.PACMAN)){
+				return true;
+			}
+			return false;
+		}
 		return false;
 	}
 
 	public boolean is_ghost_in_range() { 
+		if (myMap.getLoc(myLoc.shift( 0, -1)).contains(Map.Type.GHOST) ||
+		    myMap.getLoc(myLoc.shift( 0,  1)).contains(Map.Type.GHOST) ||
+		    myMap.getLoc(myLoc.shift(-1,  0)).contains(Map.Type.GHOST) ||
+		    myMap.getLoc(myLoc.shift( 1,  0)).contains(Map.Type.GHOST)) {
+			return true;
+		}
 		return false;
 	}
 
 	public JComponent consume() { 
- 		return null;
+        if (this.myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE)) {
+            return this.myMap.eatCookie(this.myName);
+        }
+        return null;
 	}
 }
