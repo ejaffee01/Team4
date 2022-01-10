@@ -1,7 +1,7 @@
 import java.awt.Color;
 import junit.framework.*;
 
-public class TestMapAttack extends TestCase throws FileNotFoundException{
+public class TestMapAttack extends TestCase {
 
 	public void testMapAttack() throws FileNotFoundException{
 		NoFrame frame = new NoFrame();
