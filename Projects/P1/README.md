@@ -11,9 +11,7 @@ Aiden Stern, Chiebuka Ohams, Jacob James, Lucas Balangero
 
 ## PacMan in Action
 
-(Image or video of Pacman Playing)
-
-![screenshot of PacMan](https://github.com/cmsc388T-winter22/Team4/blob/main/Projects/P1/src/assets/pacman.png)
+![screenshot of PacMan](https://github.com/cmsc388T-winter22/Team4/blob/main/Projects/P1/src/assets/PacManScreenShot.png)
 <br><br>
 
 ## Running PacMan
