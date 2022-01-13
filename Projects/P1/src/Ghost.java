@@ -24,13 +24,13 @@ public class Ghost{
 			moves.add(locUp);
 		}
 		if (!myMap.getLoc(locDown).contains(Map.Type.WALL)){
-			moves.add(locDown);
+			moves.add(locUp);
 		}
 		if (!myMap.getLoc(locRight).contains(Map.Type.WALL)){
-			moves.add(locRight);
+			moves.add(locDown);
 		}
 		if (!myMap.getLoc(locLeft).contains(Map.Type.WALL)){
-			moves.add(locLeft);
+			moves.add(locDown);
 		}
 		
 		return moves;

@@ -63,10 +63,10 @@ public class Map{
 				//use the setLocation method for the component to move it to the new location
 				components.get(name).setLocation(loc.x,loc.y);
 				field.get(loc).add(type);
-				return true;
+				return false;
 			}
 			else{
-				return false;
+				return true;
 			}
 		}else if (type == (Map.Type.GHOST)){
 			Ghost ghost = new Ghost(name, oldLoc, this);
@@ -77,13 +77,13 @@ public class Map{
 				components.get(name).setLocation(loc.x,loc.y);
 				field.get(loc).add(type);
 				
-				return true;
-			}
-			else{
 				return false;
 			}
+			else{
+				return true;
+			}
 		}else {
-			return false;
+			return true;
 		}
 	}
 	
