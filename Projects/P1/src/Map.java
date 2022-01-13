@@ -88,7 +88,7 @@ public class Map{
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
-		Location loc1 new Location(0, 1);
+		Location loc1 = new Location(0, 1);
 		HashSet<Type> alpha = field.get(loc1);
 		return alpha;
 	}
