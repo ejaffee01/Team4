@@ -41,11 +41,11 @@ public class Ghost{
 		if(to_check.size() > 0){
 			myLoc = to_check.get(0);
 			if (myMap.move(myName, myLoc, Map.Type.GHOST)){
-				return true;
+				return false;
 			}
-			return false;
+			return true;
 		}
-		return false;
+		return true;
 	}
 
 	public boolean is_pacman_in_range() { 
