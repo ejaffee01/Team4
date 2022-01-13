@@ -21,6 +21,3 @@ jobs:
       - name: Compile Java source code and tests
         working-directory: ./Projects/P1
         run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-
-      
-        run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
