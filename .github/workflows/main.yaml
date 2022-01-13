@@ -3,7 +3,6 @@ name: compile-test
 # controls when workflow will run
 on:
   # triggers the workflow on push or pull request events
-  push:
   pull_request:
   
   # allows you to run this workflow manually from the actions tab on github
