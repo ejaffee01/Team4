@@ -15,10 +15,14 @@ jobs:
   build:
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
-      - name: Compile Java source code and tests
-        working-directory: ./Projects/P1
+      - name: Set up OpenJDK 17
+        uses: actions/setup-java@v2
         with:
           distribution: "zulu"
           java-version: "17"
-      - run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+      - name: Compile Java source code and tests
+        working-directory: ./Projects/P1
+        run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+
+      
+        run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
