@@ -86,6 +86,22 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
+      
+  test-pacman-valid-moves:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up OpenJDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: "zulu"
+          java-version: "17"
+      - name: Compile and test
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves   
           
   test-pacman-move:
     runs-on: ubuntu-latest
@@ -101,7 +117,23 @@ jobs:
         working-directory: ./Projects/P1
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove     
+      
+  test-ghost-valid-moves:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up OpenJDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: "zulu"
+          java-version: "17"
+      - name: Compile and test
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves 
 
   test-map-get-loc:
     runs-on: ubuntu-latest
@@ -118,4 +150,19 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapGetLoc
+      
+  test-map-move:
+    runs-on: ubuntu-latest
     
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up OpenJDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: "zulu"
+          java-version: "17"
+      - name: Compile and test
+        working-directory: ./Projects/P1
+        run: |
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
