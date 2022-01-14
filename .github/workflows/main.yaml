@@ -167,7 +167,7 @@ jobs:
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
 
- test-pacman-in-range:
+  test-pacman-in-range:
     runs-on: ubuntu-latest
 
     steps:
