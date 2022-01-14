@@ -25,13 +25,13 @@ public class PacMan{
 		if (!myMap.getLoc(locUp).contains(Map.Type.WALL) && !myMap.getLoc(locUp).contains(Map.Type.GHOST)){
 			moves.add(locUp);
 		}
-		if (!myMap.getLoc(locDown).contains(Map.Type.WALL) && !myMap.getLoc(locDown).contains(Map.Type.GHOST)){
+		if (!myMap.getLoc(locDown).contains(Map.Type.PACMAN) && !myMap.getLoc(locDown).contains(Map.Type.GHOST)){
 			moves.add(locDown);
 		}
-		if (!myMap.getLoc(locRight).contains(Map.Type.WALL) && !myMap.getLoc(locRight).contains(Map.Type.GHOST) ){
+		if (!myMap.getLoc(locRight).contains(Map.Type.PACMAN) && !myMap.getLoc(locRight).contains(Map.Type.GHOST) ){
 			moves.add(locRight);
 		}
-		if (!myMap.getLoc(locLeft).contains(Map.Type.WALL) && !myMap.getLoc(locLeft).contains(Map.Type.GHOST)){
+		if (!myMap.getLoc(locLeft).contains(Map.Type.PACMAN) && !myMap.getLoc(locLeft).contains(Map.Type.GHOST)){
 			moves.add(locLeft);
 		} 
 
@@ -43,11 +43,11 @@ public class PacMan{
 		if(to_check.size() > 0){
 			myLoc = to_check.get(0);
 			if (myMap.move(myName, myLoc, Map.Type.PACMAN)){
-				return true;
+				return false;
 			}
-			return false;
+			return true;
 		}
-		return false;
+		return true;
 	}
 
 	public boolean is_ghost_in_range() { 
@@ -55,13 +55,13 @@ public class PacMan{
 		    myMap.getLoc(myLoc.shift( 0,  1)).contains(Map.Type.GHOST) ||
 		    myMap.getLoc(myLoc.shift(-1,  0)).contains(Map.Type.GHOST) ||
 		    myMap.getLoc(myLoc.shift( 1,  0)).contains(Map.Type.GHOST)) {
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	public JComponent consume() { 
-        if (this.myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE)) {
+        if (!this.myMap.getLoc(this.myLoc).contains(Map.Type.COOKIE)) {
             return this.myMap.eatCookie(this.myName);
         }
         return null;
