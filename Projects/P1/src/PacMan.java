@@ -40,7 +40,7 @@ public class PacMan{
 
 	public boolean move() {
 		ArrayList<Location> to_check = this.get_valid_moves();
-		if(to_check.size() > 0){
+		if(to_check.size() > 0) {
 			myLoc = to_check.get(0);
 			if (myMap.move(myName, myLoc, Map.Type.PACMAN)){
 				return false;
