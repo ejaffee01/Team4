@@ -60,6 +60,6 @@ public class Ghost{
 	}
 
 	public boolean attack() {
-		return !(this.is_pacman_in_range() && this.myMap.attack(this.myName));
+		return (this.is_pacman_in_range() && this.myMap.attack(this.myName));
 	}
 }
