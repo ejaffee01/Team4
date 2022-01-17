@@ -104,7 +104,7 @@ public class Map{
 	public JComponent eatCookie(String name) {
         Location location = this.locations.get(name);
         HashSet<Type> objects = this.getLoc(location);
-	    if ((objects.contains(Map.Type.COOKIE) && objects.contains(Map.Type.PACMAN))) {
+	    if (!(objects.contains(Map.Type.COOKIE) && objects.contains(Map.Type.PACMAN))) {
             return null;
         }
         //the id for a cookie at (10, 1) is tok_x10_y1
