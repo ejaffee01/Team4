@@ -63,10 +63,10 @@ public class Map{
 				//use the setLocation method for the component to move it to the new location
 				components.get(name).setLocation(loc.x,loc.y);
 				field.get(loc).add(type);
-				return false;
+				return true;
 			}
 			else{
-				return true;
+				return false;
 			}
 		}else if (type == (Map.Type.GHOST)){
 			Ghost ghost = new Ghost(name, oldLoc, this);
@@ -77,24 +77,22 @@ public class Map{
 				components.get(name).setLocation(loc.x,loc.y);
 				field.get(loc).add(type);
 				
-				return false;
-			}
-			else{
 				return true;
 			}
+			else{
+				return false;
+			}
 		}else {
-			return true;
+			return false;
 		}
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
-		Location loc1 = new Location(0, 1);
-		HashSet<Type> alpha = field.get(loc1);
-		return alpha;
+		return field.get(loc);
 	}
 
 	public boolean attack(String Name) {
-		if (locations.containsKey(Name) && move(Name, locations.get(Name), Type.GHOST)) {
+		if (locations.containsKey(Name) && move(Name, locations.get("pacman"), Type.GHOST)) {
 			//update gameOver
 			this.gameOver = true;
 		}
@@ -104,7 +102,7 @@ public class Map{
 	public JComponent eatCookie(String name) {
         Location location = this.locations.get(name);
         HashSet<Type> objects = this.getLoc(location);
-	    if ((objects.contains(Map.Type.COOKIE) && objects.contains(Map.Type.PACMAN))) {
+	    if (!(objects.contains(Map.Type.COOKIE) && objects.contains(Map.Type.PACMAN))) {
             return null;
         }
         //the id for a cookie at (10, 1) is tok_x10_y1
