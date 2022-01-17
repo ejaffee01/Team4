@@ -25,13 +25,13 @@ public class PacMan{
 		if (!myMap.getLoc(locUp).contains(Map.Type.WALL) && !myMap.getLoc(locUp).contains(Map.Type.GHOST)){
 			moves.add(locUp);
 		}
-		if (!myMap.getLoc(locDown).contains(Map.Type.PACMAN) && !myMap.getLoc(locDown).contains(Map.Type.GHOST)){
+		if (!myMap.getLoc(locDown).contains(Map.Type.WALL) && !myMap.getLoc(locDown).contains(Map.Type.GHOST)){
 			moves.add(locDown);
 		}
-		if (!myMap.getLoc(locRight).contains(Map.Type.PACMAN) && !myMap.getLoc(locRight).contains(Map.Type.GHOST) ){
+		if (!myMap.getLoc(locRight).contains(Map.Type.WALL) && !myMap.getLoc(locRight).contains(Map.Type.GHOST) ){
 			moves.add(locRight);
 		}
-		if (!myMap.getLoc(locLeft).contains(Map.Type.PACMAN) && !myMap.getLoc(locLeft).contains(Map.Type.GHOST)){
+		if (!myMap.getLoc(locLeft).contains(Map.Type.WALL) && !myMap.getLoc(locLeft).contains(Map.Type.GHOST)){
 			moves.add(locLeft);
 		} 
 
