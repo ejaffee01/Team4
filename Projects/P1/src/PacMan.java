@@ -55,9 +55,9 @@ public class PacMan{
 		    myMap.getLoc(myLoc.shift( 0,  1)).contains(Map.Type.GHOST) ||
 		    myMap.getLoc(myLoc.shift(-1,  0)).contains(Map.Type.GHOST) ||
 		    myMap.getLoc(myLoc.shift( 1,  0)).contains(Map.Type.GHOST)) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	public JComponent consume() { 

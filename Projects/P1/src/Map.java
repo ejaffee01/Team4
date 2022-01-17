@@ -94,7 +94,7 @@ public class Map{
 	}
 
 	public boolean attack(String Name) {
-		if (locations.containsKey(Name) && move(Name, locations.get(Name), Type.GHOST)) {
+		if (locations.containsKey(Name) && move(Name, locations.get("pacman"), Type.GHOST)) {
 			//update gameOver
 			this.gameOver = true;
 		}
